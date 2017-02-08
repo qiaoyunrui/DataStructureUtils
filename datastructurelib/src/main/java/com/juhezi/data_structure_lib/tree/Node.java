@@ -3,7 +3,7 @@ package com.juhezi.data_structure_lib.tree;
 /**
  * Created by qiao1 on 2017/2/7.
  */
-class Node<T> {
+public class Node<T> {
     private static String TAG = "Node";
 
     Node<T> parent;     //父结点
@@ -58,13 +58,6 @@ class Node<T> {
         this.value = value;
     }
 
-    /**
-     * 获取结点的数量
-     *
-     * @return
-     */
-    public int getSize() {
-        return 0;
-    }
+
 
 }
