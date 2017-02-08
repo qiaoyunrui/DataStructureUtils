@@ -107,11 +107,15 @@ public class BinTree<T> {
      *
      * @param value
      */
-    public void add(T value) {
+    public boolean add(T value) {
 
     }
 
-    public void remove(T value) {
+    /**
+     * 删除第一个匹配的元素
+     * @param value
+     */
+    public boolean remove(T value) {
 
     }
 
@@ -122,7 +126,6 @@ public class BinTree<T> {
             @Override
             public void onAction(Node node) {
                 node = null;
-                //GC
             }
         });
     }
