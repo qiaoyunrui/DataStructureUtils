@@ -15,6 +15,7 @@ public class BinTree<T> {
     private static final int FRONT = 0x101;
     private static final int CENTER = 0x102;
     private static final int BEHIND = 0x103;
+    private static final int LEVEL = 0x124;
 
     private int size = -1;
     private Node<T> root = null;   //根节点
@@ -49,7 +50,21 @@ public class BinTree<T> {
      */
     public static <Type> BinTree<Type> makeBinTree(
             BinTree<Type> leftBinTree, Node<Type> rootNode, BinTree<Type> rightBinTree) {
-        return null;
+        if (rootNode == null) return null;
+        BinTree<Type> result = new BinTree<>(rootNode);
+        if (leftBinTree == null) {
+            rootNode.setLeftChild(null);
+        } else {
+            rootNode.setLeftChild(leftBinTree.getRoot());
+            leftBinTree.getRoot().setParent(rootNode);
+        }
+        if (rightBinTree == null) {
+            rootNode.setRightChild(null);
+        } else {
+            rootNode.setRightChild(rightBinTree.getRoot());
+            rightBinTree.getRoot().setParent(rootNode);
+        }
+        return result;
     }
 
     /**
@@ -83,6 +98,7 @@ public class BinTree<T> {
      */
     @Override
     public String toString() {
+        // TODO: 2017/2/9  
         return super.toString();
     }
 
@@ -94,29 +110,35 @@ public class BinTree<T> {
      */
     @Override
     protected Object clone() throws CloneNotSupportedException {
+        // TODO: 2017/2/9  
         return super.clone();
     }
 
     @Override
     public boolean equals(Object o) {
-        return super.equals(o);
+        if (o == null)
+            return false;
+        if (o instanceof BinTree)
+            return equals(root, ((BinTree) o).root);
+        if (o instanceof Node)
+            return equals(root, (Node) o);
+        return false;
     }
 
     /**
-     * 添加为完全二叉树
+     * 递归判断两个结点是否相等
      *
-     * @param value
+     * @param var1
+     * @param var2
+     * @return
      */
-    public boolean add(T value) {
-
-    }
-
-    /**
-     * 删除第一个匹配的元素
-     * @param value
-     */
-    public boolean remove(T value) {
-
+    private static boolean equals(Node var1, Node var2) {
+        return ((var1 == null) && (var2 == null)) ||
+                ((var1 != null)
+                        && (var2 != null)
+                        && (var1.getValue() == var2.getValue())
+                        && equals(var1.getLeftChild(), var1.getLeftChild())
+                        && equals(var1.getRightChild(), var2.getRightChild()));
     }
 
     public void clear() {
@@ -144,9 +166,21 @@ public class BinTree<T> {
             case BEHIND:
                 postOrder(root, action);
                 break;
+            case LEVEL:
+                break;
             default:
                 preOrder(root, action);
         }
+    }
+
+    /**
+     * 层序遍历
+     *
+     * @param node
+     * @param action
+     */
+    private void levelOrder(Node<T> node, Action<T> action) {
+        // TODO: 2017/2/9 complete
     }
 
     /**
@@ -157,8 +191,8 @@ public class BinTree<T> {
      */
     private void traverse(Node<T> node, Action<Node> action) {
         if (node != null) {
-            traverse(node, action);
-            traverse(node, action);
+            traverse(node.getLeftChild(), action);
+            traverse(node.getRightChild(), action);
             action.onAction(node);
         }
     }
@@ -219,5 +253,13 @@ public class BinTree<T> {
                 size++;
             }
         });
+    }
+
+    public Node<T> getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node<T> root) {
+        this.root = root;
     }
 }
