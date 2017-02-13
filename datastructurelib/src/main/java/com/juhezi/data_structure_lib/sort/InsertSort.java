@@ -16,7 +16,7 @@ public class InsertSort {
      * @param comparable
      * @param <T>
      */
-    public static <T> void sort(T[] array, JComparable<T> comparable) {
+    public static <T> T[] sort(T[] array, JComparable<T> comparable) {
         if (comparable == null) {
             throw new NullPointerException("comparable can not be null!!");
         }
@@ -32,7 +32,7 @@ public class InsertSort {
             }
             array[i + 1] = key;     //把key放在空缺的位置
         }
-
+        return array;
     }
 
 }

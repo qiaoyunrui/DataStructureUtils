@@ -1,6 +1,7 @@
 package com.juhezi.data_structure_lib;
 
 import com.juhezi.data_structure_lib.sort.InsertSort;
+import com.juhezi.data_structure_lib.sort.MergeSort;
 import com.juhezi.data_structure_lib.util.impl.IntegerComparable;
 
 import java.util.Arrays;
@@ -13,9 +14,10 @@ public class Main {
 
     public static void main(String[] args) {
         Integer[] array = new Integer[]{5, 2, 4, 6, 1, 3};
-        InsertSort.sort(array, new IntegerComparable());
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + "\t");
+        Integer[] dest = new Integer[6];
+        MergeSort.sort(array, dest, new IntegerComparable());
+        for (int i = 0; i < dest.length; i++) {
+            System.out.print(dest[i] + "\t");
         }
     }
 
