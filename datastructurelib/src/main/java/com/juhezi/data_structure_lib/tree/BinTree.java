@@ -3,6 +3,11 @@ package com.juhezi.data_structure_lib.tree;
 import com.juhezi.data_structure_lib.util.Action;
 
 import java.awt.Font;
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Objects;
+import java.util.Queue;
+import java.util.Vector;
 
 /**
  * 二叉树
@@ -91,28 +96,6 @@ public class BinTree<T> {
         return null;
     }
 
-    /**
-     * 打印该二叉树
-     *
-     * @return
-     */
-    @Override
-    public String toString() {
-        // TODO: 2017/2/9  
-        return super.toString();
-    }
-
-    /**
-     * 克隆二叉树
-     *
-     * @return
-     * @throws CloneNotSupportedException
-     */
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        // TODO: 2017/2/9  
-        return super.clone();
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -167,6 +150,7 @@ public class BinTree<T> {
                 postOrder(root, action);
                 break;
             case LEVEL:
+                levelOrder(root, action);
                 break;
             default:
                 preOrder(root, action);
@@ -176,11 +160,26 @@ public class BinTree<T> {
     /**
      * 层序遍历
      *
-     * @param node
+     * @param root
      * @param action
      */
-    private void levelOrder(Node<T> node, Action<T> action) {
-        // TODO: 2017/2/9 complete
+    private void levelOrder(Node<T> root, Action<T> action) {
+        Queue<Node<T>> queue = new LinkedList<>();
+        queue.offer(root);    //把根结点放入
+        while (true) {
+            Node<T> node = queue.poll();
+            if (node != null) {
+                action.onAction(node.getValue());   //获取该结点的值
+                if (node.getLeftChild() != null) {
+                    queue.offer(node.getLeftChild());  //左结点插入
+                }
+                if (node.getRightChild() != null) {
+                    queue.offer(node.getRightChild());  //右结点插入
+                }
+            } else {
+                break;
+            }
+        }
     }
 
     /**
