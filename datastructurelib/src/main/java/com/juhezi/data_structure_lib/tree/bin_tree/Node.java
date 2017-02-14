@@ -1,4 +1,4 @@
-package com.juhezi.data_structure_lib.tree;
+package com.juhezi.data_structure_lib.tree.bin_tree;
 
 /**
  * Created by qiao1 on 2017/2/7.

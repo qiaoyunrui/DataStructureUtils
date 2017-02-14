@@ -1,13 +1,9 @@
-package com.juhezi.data_structure_lib.tree;
+package com.juhezi.data_structure_lib.tree.bin_tree;
 
 import com.juhezi.data_structure_lib.util.Action;
 
-import java.awt.Font;
-import java.util.ArrayDeque;
 import java.util.LinkedList;
-import java.util.Objects;
 import java.util.Queue;
-import java.util.Vector;
 
 /**
  * 二叉树
