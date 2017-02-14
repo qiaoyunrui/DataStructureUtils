@@ -13,12 +13,7 @@ public class Main {
     private static String TAG = "Main";
 
     public static void main(String[] args) {
-        Integer[] array = new Integer[]{5, 2, 4, 6, 1, 3};
-        Integer[] dest = new Integer[6];
-        MergeSort.sort(array, dest, new IntegerComparable());
-        for (int i = 0; i < dest.length; i++) {
-            System.out.print(dest[i] + "\t");
-        }
+        System.out.println(1 >>> 1);
     }
 
 }

@@ -13,4 +13,8 @@ public interface JComparable<T> {
 
     boolean equals(T var1, T var2);
 
+    boolean moreOrEquals(T var1, T var2);
+
+    boolean lessOrEquals(T var1, T var2);
+
 }

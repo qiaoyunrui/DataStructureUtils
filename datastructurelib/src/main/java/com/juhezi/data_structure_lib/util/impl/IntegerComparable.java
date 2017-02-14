@@ -22,4 +22,14 @@ public class IntegerComparable implements JComparable<Integer> {
     public boolean equals(Integer var1, Integer var2) {
         return var1 == var2;
     }
+
+    @Override
+    public boolean moreOrEquals(Integer var1, Integer var2) {
+        return var1 >= var2;
+    }
+
+    @Override
+    public boolean lessOrEquals(Integer var1, Integer var2) {
+        return var1 <= var2;
+    }
 }

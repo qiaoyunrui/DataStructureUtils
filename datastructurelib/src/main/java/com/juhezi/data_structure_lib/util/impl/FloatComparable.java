@@ -23,4 +23,14 @@ public class FloatComparable implements JComparable<Float> {
         return var1 == var2;
     }
 
+    @Override
+    public boolean moreOrEquals(Float var1, Float var2) {
+        return var1 >= var2;
+    }
+
+    @Override
+    public boolean lessOrEquals(Float var1, Float var2) {
+        return var1 <= var2;
+    }
+
 }
