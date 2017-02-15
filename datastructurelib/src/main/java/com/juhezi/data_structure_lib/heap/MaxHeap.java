@@ -26,10 +26,11 @@ public class MaxHeap<T> extends Heap<T> implements Deleteable<T> {
             return false;
         int i = size;
         while ((i != 0) && comparable.moreThan(node.key, elements[i >>> 1].key)) {
-            elements[i] = elements[i >>> 1];
-            i >>>= 1;
+            elements[i] = elements[(i - 1) >>> 1];
+            i = (i - 1) >>> 1;
         }
         elements[i] = node;
+        size++;
         return true;
     }
 
@@ -60,6 +61,8 @@ public class MaxHeap<T> extends Heap<T> implements Deleteable<T> {
             child = child << 1 + 1;
         }
         elements[parent] = detail;
+        size--;
+        elements[size] = null;
         return max;
     }
 }
