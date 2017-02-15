@@ -21,6 +21,15 @@ public abstract class Heap<T> {
         size = 0;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder out = new StringBuilder("");
+        for (Node<T> element : elements) {
+            out.append(element.key + " ");
+        }
+        return out.toString();
+    }
+
     public boolean isFull() {
         return size == MAX_SIZE;
     }
@@ -38,8 +47,19 @@ public abstract class Heap<T> {
      */
     public abstract boolean insert(Node<T> node, JComparable<T> comparable);
 
+    /**
+     * 删除元素，如果是最大堆，则删除最大元素，如果是最小堆则删除最小元素
+     *
+     * @return
+     */
+    public abstract Heap.Node<T> delete(JComparable<T> comparable);
+
     public static class Node<Y> {
         Y key;
+
+        public Node(Y key) {
+            this.key = key;
+        }
     }
 
 }

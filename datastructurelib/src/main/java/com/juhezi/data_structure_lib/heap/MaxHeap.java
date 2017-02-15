@@ -6,7 +6,7 @@ import com.juhezi.data_structure_lib.util.JComparable;
  * 最大堆
  * Created by qiao1 on 2017/2/14.
  */
-public class MaxHeap<T> extends Heap<T> implements Deleteable<T> {
+public class MaxHeap<T> extends Heap<T> {
     private static String TAG = "MaxHeap";
 
     public MaxHeap(int maxSize) {

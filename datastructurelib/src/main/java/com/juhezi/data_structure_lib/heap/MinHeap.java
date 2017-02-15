@@ -6,7 +6,7 @@ import com.juhezi.data_structure_lib.util.JComparable;
  * 最小堆
  * Created by qiao1 on 2017/2/15.
  */
-public class MinHeap<T> extends Heap<T> implements Deleteable<T> {
+public class MinHeap<T> extends Heap<T> {
     private static String TAG = "MinHeap";
 
     public MinHeap(int maxSize) {

@@ -13,13 +13,13 @@ import java.util.Queue;
 public class BinTree<T> {
     private static String TAG = "BinTree";
 
-    private static final int FRONT = 0x101;
-    private static final int CENTER = 0x102;
-    private static final int BEHIND = 0x103;
-    private static final int LEVEL = 0x124;
+    protected static final int FRONT = 0x101;
+    protected static final int CENTER = 0x102;
+    protected static final int BEHIND = 0x103;
+    protected static final int LEVEL = 0x124;
 
-    private int size = -1;
-    private Node<T> root = null;   //根节点
+    protected int size = -1;
+    protected Node<T> root = null;   //根节点
 
     /**
      * 创建一个空的二叉树
