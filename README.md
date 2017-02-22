@@ -7,6 +7,7 @@ Data Structure Tools
 
 - [X] 稀疏矩阵容器
 - [X] KMP字符串匹配算法
+- [x] 森林
 - [X] 二叉树
     - [X] 线索二叉树
     - [X] 二叉查找树
