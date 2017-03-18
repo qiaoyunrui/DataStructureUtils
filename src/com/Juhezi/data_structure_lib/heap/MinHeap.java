@@ -17,7 +17,7 @@ public class MinHeap<T> extends Heap<T> {
     public boolean insert(Node<T> node, JComparable<T> comparable) {
         if (isFull()) return false;
         int i = size;
-        while ((i != 0) && comparable.lessThan(node.key, elements[i >>> 1].key)) {
+        while ((i != 0) && comparable.lessThan(node.key, elements[(i - 1) >>> 1].key)) {
             elements[i] = elements[(i - 1) >>> 1];
             i = (i - 1) >>> 1;
         }
