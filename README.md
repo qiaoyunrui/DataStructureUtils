@@ -19,3 +19,4 @@ Data Structure Tools
 - [ ] 各种排序算法
     - [X] 插入排序
     - [X] 归并排序
+    - [X] 快速排序
