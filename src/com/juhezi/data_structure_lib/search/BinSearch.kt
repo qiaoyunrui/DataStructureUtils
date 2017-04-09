@@ -21,7 +21,7 @@ private fun <T> binSearchInternal(array: Array<T>, key: T, start: Int, end: Int,
                                   comparable: JComparable<T>): Int {
     if (start < 0 || end >= array.size || start > end) return -1
     if (start == end && !comparable.equals(array[start], key)) return -1 //不存在
-    var center = (start + end).shr(1)
+    var center = (start + end).ushr(1)
     if (comparable.moreThan(key, array[center])) //key > center
         return binSearchInternal(array, key, center + 1, end, comparable)
     if (comparable.lessThan(key, array[center])) //key < center

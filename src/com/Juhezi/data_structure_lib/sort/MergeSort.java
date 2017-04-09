@@ -11,8 +11,7 @@ public class MergeSort {
     /**
      * p <= q < r，该过程假设子数组array[p..q]和array[q+1..r]都已经排好序。
      * 它合并这两个子数组形成单一的已排好序的子数组并代替当前的子数组[p..r]
-     * <p>
-     * 时间复杂度 O(n)
+     *
      */
     private static <T> void mergeSort(T[] srcArray, T[] destArray, int low, int high, JComparable<T> comparable) {
         int length = high - low;
