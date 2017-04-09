@@ -32,6 +32,7 @@ public class Main {
             index--;
         }
         System.out.println(result);
+
     }
 
     public static int fun1(int index) {
@@ -43,5 +44,6 @@ public class Main {
         }
         return result;
     }
+
 
 }
