@@ -313,6 +313,9 @@ class LinkedList<T> : MutableList<T> {
             prev = temp
             temp = next
         }
+        temp = head
+        head = tail
+        tail = temp
     }
 
     private fun checkElementIndex(index: Int) {
