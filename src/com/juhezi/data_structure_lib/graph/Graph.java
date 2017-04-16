@@ -1,15 +1,32 @@
 package com.juhezi.data_structure_lib.graph;
 
 /**
- * Created by qiao1 on 2017/3/2.
+ * Created by Juhezi on 2017/4/16.
  */
-public class Graph<T> {
-    private static final int DEFAULT_CAPACITY = 10; //默认容量
-//    private static final T[] EMPTY_ELEMENTDATA = {};   //空图
-    T[] elementData;
+public abstract class Graph<T> {
 
-    class Edge {
-        
+    int totalVertexs;   //顶点总数
+    int totalEdges; //边数
+
+    public Graph(int totalVertexs, int totalEdges) {
+        this.totalEdges = totalEdges;
+        this.totalVertexs = totalVertexs;
     }
+
+    /**
+     * 判断顶点是否合法
+     *
+     * @param index
+     * @return 是否合法
+     */
+    boolean checkVertex(int index) {
+        if (index >= 0 && index < totalVertexs)
+            return true;
+        return false;
+    }
+
+    public abstract void addEdge(int from, int to, int length);
+
+    public abstract void addVertex(int index, T value);
 
 }
