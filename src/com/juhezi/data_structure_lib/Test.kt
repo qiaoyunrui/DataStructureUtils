@@ -12,4 +12,5 @@ fun main(args: Array<String>) {
     var list = arrayListOf<String>()
     list.add(5, "Hello")
     println(list[5])
+    list.forEach({})
 }

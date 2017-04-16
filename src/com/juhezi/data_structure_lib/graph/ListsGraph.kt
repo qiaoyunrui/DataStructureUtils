@@ -1,5 +1,7 @@
 package com.juhezi.data_structure_lib.graph
 
+import java.util.*
+
 /**
  * Created by Juhezi on 2017/4/16.
  *
@@ -35,5 +37,53 @@ class ListsGraph<T>(totalVertexs: Int, totalEdges: Int) :
         var vertex: Vertex<T>? = vertexs[from] ?: return
         var edge = Edge(to, length, vertex!!.firstEdge)
         vertex.firstEdge = edge
+    }
+
+    private val visited = BooleanArray(totalVertexs)
+
+    /**
+     * 深度优先算法
+     */
+    fun dfs(index: Int, action: (T?) -> Unit) {
+        visited.forEach { false }    //初始化标记数组
+        internalDfs(index, action)
+    }
+
+    private fun internalDfs(index: Int, action: (T?) -> Unit) {
+        if (!checkVertex(index)) return
+        visited[index] = true
+        action(vertexs[index]?.value)
+        var temp = vertexs[index]!!.firstEdge
+        while (temp != null) {
+            if (!visited[temp.vertex]) {
+                internalDfs(temp.vertex, action)
+            }
+            temp = temp.next
+        }
+    }
+
+    /**
+     * 广度优先遍历
+     */
+    fun bfs(index: Int, action: (T?) -> Unit) {
+        visited.forEach { false }    //初始化标记数组
+        internalBfs(index, action)
+    }
+
+    fun internalBfs(index: Int, action: (T?) -> Unit) {
+        if (!checkVertex(index)) return
+        var queue = LinkedList<Int>()
+        visited[index] = true
+        action(vertexs[index]?.value)
+        queue.offer(index)    //当前结点入队
+        while (queue.size > 0) {
+            var v = queue.poll()
+            var temp = vertexs[v]!!.firstEdge
+            while (temp != null) {
+                action(vertexs[temp.vertex]!!.value)
+                queue.offer(temp.vertex)
+                temp = temp.next
+            }
+        }
     }
 }

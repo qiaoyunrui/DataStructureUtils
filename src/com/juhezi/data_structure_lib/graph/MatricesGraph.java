@@ -1,5 +1,7 @@
 package com.juhezi.data_structure_lib.graph;
 
+import kotlin.Unit;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +45,5 @@ public class MatricesGraph<T> extends Graph<T> {
             return;
         vertexs.add(index, value);
     }
-
 
 }
