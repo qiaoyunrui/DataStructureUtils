@@ -1,19 +1,14 @@
 package com.juhezi.data_structure_lib
 
 import com.juhezi.data_structure_lib.list.LinkedList
+import com.juhezi.data_structure_lib.sort.bubbleSort
+import com.juhezi.data_structure_lib.util.impl.IntegerComparable
 
 /**
  * Created by Juhezi on 2017/4/8.
  */
 fun main(args: Array<String>) {
-    var list = LinkedList<Int>()
-    for (i in 0..10) {
-        list.add(i)
-    }
-//    list.reversal()
-    list.reverseX()
-    for (i in 0..9) {
-        println(list[i])
-    }
-
+    var array = Array(20, { it })
+    bubbleSort(array, IntegerComparable())
+    array.forEach { println("$it ") }
 }
