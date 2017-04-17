@@ -9,7 +9,7 @@ public class Collection<T> {
 
     private static final int MAX_ELEMENTS = 1024;
 
-    private int[] parent;   //父节点所在的位置
+    private int[] parent;   //存放父节点所在的位置
     private T[] values;
     private int size = 0;
 
@@ -59,7 +59,7 @@ public class Collection<T> {
     }
 
     /**
-     * 并操作
+     * 并操作，把第一棵树作为第二棵树的子树
      *
      * @param i
      * @param j
